@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>PU Lost & Found (Purple Aesthetic)</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+   /* FOOTER ------------------------------------------------------------ */
+
+#appFooter {
+  width: 100%;
+  text-align: center;
+  margin-top: 20px;
+  padding: 14px;
+  font-size: 14px;
+  color: var(--text-light);
+  background: var(--card-bg);
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+}
+
+
+/* 🌸 PURPLE AESTHETIC THEME ----------------------------------------- */
+
+/* LIGHT THEME */
+:root {
+  --bg: #F7F2FF;
+  --card-bg: #FFFFFF;
+  --text-dark: #2A153B;
+  --text-light: #6B4A8A;
+  --border: #E5D8F5;
+
+  --primary: #B57CFF;
+  --primary-soft: #F0E6FF;
+  --primary-light: #E6D7FF;
+
+  --accent-pink: #F8C8FF;
+  --shadow: 0 6px 22px rgba(150, 90, 255, 0.12);
+}
+
+/* DARK THEME */
+.dark {
+  --bg: #1C1524;
+  --card-bg: #261C33;
+  --text-dark: #F4EFFF;
+  --text-light: #C7B5D9;
+  --border: #3D2E4D;
+
+  --primary: #CBA3FF;
+  --primary-soft: #2F2440;
+  --primary-light: #372950;
+
+  --accent-pink: #DDAAFF;
+  --shadow: 0 6px 24px rgba(0,0,0,0.45);
+}
+
+/* Smooth transition */
+body, .app, .sidebar, .main, .glass, .item-card,
+input, select, textarea {
+  transition: background 0.25s, color 0.25s, border 0.25s, box-shadow 0.25s ease;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: Poppins, sans-serif;
+  background: var(--bg);
+  color: var(--text-dark);
+  padding: 20px;
+}
+
+/* APP LAYOUT ------------------------------------------------------- */
+
+.app {
+  width: 100%;
+  max-width: 1100px;
+  margin: auto;
+  background: var(--card-bg);
+  border-radius: 16px;
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  gap: 16px;
+  padding: 16px;
+  box-shadow: var(--shadow);
+}
+
+/* SIDEBAR ---------------------------------------------------------- */
+
+.sidebar {
+  background: var(--card-bg);
+  border-radius: 14px;
+  border: 1px solid var(--border);
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.logo {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: var(--primary);
+  color: white;
+  display: flex;
+  align-items:center;
+  justify-content:center;
+  font-weight: 700;
+}
+
+.nav-btn {
+  background: var(--primary-soft);
+  border: 1px solid var(--border);
+  padding: 10px;
+  font-weight: 600;
+  border-radius: 10px;
+  color: var(--text-dark);
+  cursor: pointer;
+  text-align: left;
+  transition: 0.25s;
+}
+.nav-btn:hover {
+  background: var(--primary-light);
+}
+.nav-btn.active {
+  background: var(--primary);
+  color: white;
+  border-color: var(--primary);
+}
+
+/* MAIN ------------------------------------------------------------- */
+
+.main {
+  background: var(--card-bg);
+  border-radius: 12px;
+  padding: 20px;
+  min-height: 520px;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+}
+
+/* PAGES */
+.page { display: none; }
+.page.active { display: block; }
+
+/* CARDS ------------------------------------------------------------ */
+
+.glass {
+  background: var(--card-bg);
+  border-radius: 10px;
+  padding: 16px;
+  border: 1px solid var(--border);
+  margin-bottom: 16px;
+  box-shadow: var(--shadow);
+}
+
+.item-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 12px;
+  display: flex;
+  gap: 10px;
+  box-shadow: var(--shadow);
+}
+
+.thumb {
+  width: 90px;
+  height: 70px;
+  background: var(--primary-soft);
+  border-radius: 8px;
+  overflow: hidden;
+  display: flex;
+  justify-content:center;
+  align-items:center;
+}
+
+.thumb img { width: 100%; height:100%; object-fit: cover; }
+
+/* INPUTS ----------------------------------------------------------- */
+
+label {
+  font-size: 13px;
+  color: var(--text-light);
+  margin-top: 8px;
+  display: block;
+}
+
+input, textarea, select {
+  width: 100%;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  margin-top: 5px;
+  background: white;
+  color: var(--text-dark);
+}
+
+/* BUTTONS ---------------------------------------------------------- */
+
+.btn {
+  padding: 10px 14px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.25s;
+}
+
+.btn.primary { background: var(--primary); color:white; }
+.btn.primary:hover { background: #a366ff; }
+
+.btn.ghost {
+  background: var(--primary-soft);
+  color: var(--text-dark);
+  border: 1px solid var(--border);
+}
+.btn.ghost:hover { background: var(--primary-light); }
+
+.btn.small { padding: 8px 10px; font-size: 13px; }
+
+/* SEARCH BAR ------------------------------------------------------- */
+
+.search-row { display:flex; gap:8px; margin-bottom: 12px; }
+
+.empty {
+  text-align:center;
+  padding: 15px;
+  color: var(--text-light);
+}
+
+/* RESPONSIVE -------------------------------------------------------- */
+
+@media(max-width:900px) {
+  .app { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+
+<body>
+
+<div class="app">
+
+  <!-- SIDEBAR ------------------------------------------------------ -->
+  <div class="sidebar">
+    
+    <div style="display:flex; gap:10px; align-items:center;">
+      <div class="logo">PU</div>
+      <div>
+        <div style="font-weight:700">Lost & Found</div>
+        <div style="font-size:12px; color:var(--text-light)">Parul University</div>
+      </div>
+    </div>
+
+    <button class="nav-btn active" data-page="home">🏠 Home</button>
+    <button class="nav-btn" data-page="reportLost">📌 Report Lost</button>
+    <button class="nav-btn" data-page="reportFound">📍 Report Found</button>
+    <button class="nav-btn" data-page="lostList">📄 Lost Items</button>
+    <button class="nav-btn" data-page="foundList">📦 Found Items</button>
+    <button class="nav-btn" data-page="verify">🔐 Verify Item</button>
+
+    <button class="btn ghost small" id="themeToggle">🌙 Dark Mode</button>
+
+  </div>
+
+  <!-- MAIN ---------------------------------------------------------- -->
+  <div class="main">
+
+    <!-- HOME PAGE -->
+    <section id="home" class="page active">
+      <div class="glass">
+        <h2>Welcome 💜</h2>
+        <p class="muted">Report & find lost items inside campus. Auto-matching + verification enabled.</p>
+      </div>
+      <div class="glass">
+        <h3>Recent Activity</h3>
+        <div id="activityFeed"></div>
+        <div id="noAct" class="empty">No activity yet.</div>
+      </div>
+    </section>
+
+    <!-- REPORT LOST -->
+    <section id="reportLost" class="page">
+      <div class="glass">
+        <h2>Report Lost Item</h2>
+
+        <label>Your Name</label>
+        <input id="lostName">
+
+        <label>Enrollment / Faculty ID</label>
+        <input id="lostEnroll">
+
+        <label>Item Name</label>
+        <input id="lostItemName">
+
+        <label>Category</label>
+        <select id="lostItemCat">
+          <option>ID Card</option><option>Mobile</option><option>Laptop</option>
+          <option>Bag</option><option>Books</option><option>Wallet</option>
+          <option>Charger</option><option>Other</option>
+        </select>
+
+        <label>4-digit Verification Code</label>
+        <input id="lostVcode" type="password" maxlength="4">
+
+        <label>Description</label>
+        <textarea id="lostDesc"></textarea>
+
+        <label>Photo</label>
+        <input id="lostPhoto" type="file" accept="image/*">
+
+        <button class="btn primary" id="submitLost">Submit</button>
+      </div>
+    </section>
+
+    <!-- REPORT FOUND -->
+    <section id="reportFound" class="page">
+      <div class="glass">
+        <h2>Report Found Item</h2>
+
+        <label>Your Name</label>
+        <input id="foundName">
+
+        <label>Enrollment / Faculty ID</label>
+        <input id="foundEnroll">
+
+        <label>Item Name</label>
+        <input id="foundItemName">
+
+        <label>Category</label>
+        <select id="foundItemCat">
+          <option>ID Card</option><option>Mobile</option><option>Laptop</option>
+          <option>Bag</option><option>Books</option><option>Wallet</option>
+          <option>Charger</option><option>Other</option>
+        </select>
+
+        <label>Description</label>
+        <textarea id="foundDesc"></textarea>
+
+        <label>Photo</label>
+        <input id="foundPhoto" type="file" accept="image/*">
+
+        <button class="btn primary" id="submitFound">Submit</button>
+      </div>
+    </section>
+
+    <!-- LOST LIST -->
+    <section id="lostList" class="page">
+      <div class="glass">
+        <h2>Lost Items</h2>
+        <div id="lostContainer"></div>
+        <div id="lostEmpty" class="empty">No lost items reported.</div>
+      </div>
+    </section>
+
+    <!-- FOUND LIST -->
+    <section id="foundList" class="page">
+      <div class="glass">
+        <h2>Found Items</h2>
+        <div id="foundContainer"></div>
+        <div id="foundEmpty" class="empty">No found items reported.</div>
+      </div>
+    </section>
+
+    <!-- VERIFY -->
+    <section id="verify" class="page">
+      <div class="glass">
+        <h2>Verify Lost Item</h2>
+
+        <label>Select Lost Item</label>
+        <select id="verifySelect"></select>
+
+        <label>Enter 4-digit Code</label>
+        <input id="verifyCode" type="password" maxlength="4">
+
+        <button class="btn primary" id="doVerify">Verify</button>
+
+        <div id="profileBox" class="glass" style="display:none; margin-top:15px;">
+          <h3>Verified Profile</h3>
+          <div id="profileDetails"></div>
+        </div>
+      </div>
+    </section>
+
+  </div>
+</div>
+
+<!-- JAVASCRIPT ------------------------------------------------------ -->
+
+<script>
+/* SPA NAVIGATION ---------------------------------------------------- */
+function navigate(page){
+  document.querySelectorAll(".page").forEach(p=>p.classList.remove("active"));
+  document.getElementById(page).classList.add("active");
+
+  document.querySelectorAll(".nav-btn").forEach(b=>{
+    b.classList.toggle("active", b.dataset.page === page);
+  });
+}
+
+document.querySelectorAll(".nav-btn").forEach(btn=>{
+  btn.addEventListener("click", () => navigate(btn.dataset.page));
+});
+
+/* THEME TOGGLE ------------------------------------------------------ */
+const body = document.body;
+const toggleBtn = document.getElementById("themeToggle");
+
+if(localStorage.getItem("theme") === "dark"){
+  body.classList.add("dark");
+  toggleBtn.textContent = "☀ Light Mode";
+}
+
+toggleBtn.addEventListener("click", ()=>{
+  body.classList.toggle("dark");
+  const dark = body.classList.contains("dark");
+  toggleBtn.textContent = dark ? "☀ Light Mode" : "🌙 Dark Mode";
+  localStorage.setItem("theme", dark ? "dark" : "light");
+});
+
+/* DATA STORAGE ------------------------------------------------------ */
+let lostItems = JSON.parse(localStorage.getItem("lostItems") || "[]");
+let foundItems = JSON.parse(localStorage.getItem("foundItems") || "[]");
+let activity = JSON.parse(localStorage.getItem("activity") || "[]");
+
+function save(){
+  localStorage.setItem("lostItems", JSON.stringify(lostItems));
+  localStorage.setItem("foundItems", JSON.stringify(foundItems));
+  localStorage.setItem("activity", JSON.stringify(activity));
+}
+
+/* UTILS ------------------------------------------------------------- */
+function addActivity(text){
+  activity.unshift({ text, time: new Date().toLocaleString() });
+  save();
+  renderActivity();
+}
+
+/* RENDER ACTIVITY --------------------------------------------------- */
+function renderActivity(){
+  const feed = document.getElementById("activityFeed");
+  feed.innerHTML = "";
+
+  if(activity.length === 0){
+    document.getElementById("noAct").style.display = "block";
+    return;
+  }
+
+  document.getElementById("noAct").style.display = "none";
+
+  activity.slice(0,10).forEach(a=>{
+    const div = document.createElement("div");
+    div.className = "item-card";
+    div.innerHTML = `
+      <div>
+        <b>${a.text}</b><br>
+        <span class="muted">${a.time}</span>
+      </div>`;
+    feed.appendChild(div);
+  });
+}
+
+renderActivity();
+
+/* ADD LOST ITEM ----------------------------------------------------- */
+document.getElementById("submitLost").onclick = async function(){
+  const name = lostName.value.trim();
+  const enroll = lostEnroll.value.trim();
+  const itemName = lostItemName.value.trim();
+  const cat = lostItemCat.value;
+  const code = lostVcode.value.trim();
+  const desc = lostDesc.value.trim();
+  const photoFile = lostPhoto.files[0];
+
+  if(!name || !enroll || !itemName || !code){
+    return alert("Fill all required fields");
+  }
+
+  if(code.length !== 4 || isNaN(code)){
+    return alert("Code must be 4 digits");
+  }
+
+  let photo = "";
+  if(photoFile){
+    photo = await new Promise(res=>{
+      const r = new FileReader();
+      r.onload = ()=>res(r.result);
+      r.readAsDataURL(photoFile);
+    });
+  }
+
+  lostItems.push({ id:Date.now(), name, enroll, itemName, cat, code, desc, photo });
+  save();
+  addActivity("Lost item reported: " + itemName);
+
+  renderLost();
+  updateVerifySelect();
+
+  alert("Lost item added!");
+
+  lostName.value = "";
+  lostEnroll.value = "";
+  lostItemName.value = "";
+  lostVcode.value = "";
+  lostDesc.value = "";
+  lostPhoto.value = "";
+};
+
+/* ADD FOUND ITEM ---------------------------------------------------- */
+document.getElementById("submitFound").onclick = async function(){
+  const name = foundName.value.trim();
+  const enroll = foundEnroll.value.trim();
+  const itemName = foundItemName.value.trim();
+  const cat = foundItemCat.value;
+  const desc = foundDesc.value.trim();
+  const photoFile = foundPhoto.files[0];
+
+  if(!name || !enroll || !itemName){
+    return alert("Fill all required fields");
+  }
+
+  let photo = "";
+  if(photoFile){
+    photo = await new Promise(res=>{
+      const r = new FileReader();
+      r.onload = ()=>res(r.result);
+      r.readAsDataURL(photoFile);
+    });
+  }
+
+  foundItems.push({ id:Date.now(), name, enroll, itemName, cat, desc, photo });
+  save();
+  addActivity("Found item reported: " + itemName);
+
+  renderFound();
+  alert("Found item added!");
+
+  foundName.value = "";
+  foundEnroll.value = "";
+  foundItemName.value = "";
+  foundDesc.value = "";
+  foundPhoto.value = "";
+};
+
+/* RENDER LOST LIST -------------------------------------------------- */
+function renderLost(){
+  const box = document.getElementById("lostContainer");
+  box.innerHTML = "";
+
+  if(lostItems.length === 0){
+    lostEmpty.style.display = "block";
+    return;
+  }
+  lostEmpty.style.display = "none";
+
+  lostItems.forEach(item=>{
+    const div = document.createElement("div");
+    div.className = "item-card";
+    div.innerHTML = `
+      <div class="thumb">${item.photo ? `<img src="${item.photo}">` : "No Photo"}</div>
+      <div>
+        <b>${item.itemName}</b> <span class="muted">(${item.cat})</span><br>
+        <span class="muted">Reported by: ${item.name}</span>
+      </div>`;
+    box.appendChild(div);
+  });
+}
+
+renderLost();
+
+/* RENDER FOUND LIST ------------------------------------------------- */
+function renderFound(){
+  const box = document.getElementById("foundContainer");
+  box.innerHTML = "";
+
+  if(foundItems.length === 0){
+    foundEmpty.style.display = "block";
+    return;
+  }
+  foundEmpty.style.display = "none";
+
+  foundItems.forEach(item=>{
+    const div = document.createElement("div");
+    div.className = "item-card";
+    div.innerHTML = `
+      <div class="thumb">${item.photo ? `<img src="${item.photo}">` : "No Photo"}</div>
+      <div>
+        <b>${item.itemName}</b> <span class="muted">(${item.cat})</span><br>
+        <span class="muted">Found by: ${item.name}</span>
+      </div>`;
+    box.appendChild(div);
+  });
+}
+
+renderFound();
+
+/* VERIFY PAGE ------------------------------------------------------- */
+function updateVerifySelect(){
+  const sel = verifySelect;
+  sel.innerHTML = "";
+
+  if(lostItems.length === 0){
+    sel.innerHTML = "<option>No lost items</option>";
+    return;
+  }
+
+  lostItems.forEach(i=>{
+    sel.innerHTML += `<option value="${i.id}">${i.itemName} (${i.cat})</option>`;
+  });
+}
+updateVerifySelect();
+
+document.getElementById("doVerify").onclick = function(){
+  const id = verifySelect.value;
+  const code = verifyCode.value.trim();
+
+  if(!id || !code){
+    return alert("Enter details");
+  }
+
+  const item = lostItems.find(i=>i.id == id);
+  if(!item) return alert("Item not found");
+
+  if(item.code !== code){
+    return alert("Incorrect code");
+  }
+
+  profileBox.style.display = "block";
+  profileDetails.innerHTML = `
+    <b>Name:</b> ${item.name}<br>
+    <b>ID:</b> ${item.enroll}<br>
+    <b>Item:</b> ${item.itemName}<br>
+    <b>Category:</b> ${item.cat}<br>
+    <div style="margin-top:8px">
+      ${item.photo ? `<img src="${item.photo}" style="width:120px;border-radius:8px;">` : ""}
+    </div>
+  `;
+};
+</script>
+
+</body>
+<footer id="appFooter">
+  Created by <b>ARSR Group</b> ☺️
+</footer>
+
+</html>
