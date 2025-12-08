@@ -27,42 +27,28 @@
 /* 🌸 PURPLE AESTHETIC THEME ----------------------------------------- */
 
 /* LIGHT THEME */
+
+  /* 🌙 ALWAYS DARK PURPLE THEME */
+
 :root {
-  --bg: #F7F2FF;
-  --card-bg: #FFFFFF;
-  --text-dark: #2A153B;
-  --text-light: #6B4A8A;
-  --border: #E5D8F5;
-
-  --primary: #B57CFF;
-  --primary-soft: #F0E6FF;
-  --primary-light: #E6D7FF;
-
-  --accent-pink: #F8C8FF;
-  --shadow: 0 6px 22px rgba(150, 90, 255, 0.12);
-}
-
-/* DARK THEME */
-.dark {
   --bg: #1C1524;
   --card-bg: #261C33;
   --text-dark: #F4EFFF;
   --text-light: #C7B5D9;
   --border: #3D2E4D;
 
-  --primary: #CBA3FF;
-  --primary-soft: #2F2440;
-  --primary-light: #372950;
+  --primary: #CBA3FF;        /* main purple */
+  --primary-soft: #2F2440;   /* soft purple background */
+  --primary-light: #372950;  /* hover color */
 
   --accent-pink: #DDAAFF;
   --shadow: 0 6px 24px rgba(0,0,0,0.45);
 }
 
-/* Smooth transition */
-body, .app, .sidebar, .main, .glass, .item-card,
-input, select, textarea {
-  transition: background 0.25s, color 0.25s, border 0.25s, box-shadow 0.25s ease;
+body, .app, .sidebar, .main, .glass, .item-card {
+  transition: background 0.25s ease, color 0.25s ease;
 }
+
 
 * { box-sizing: border-box; }
 
@@ -264,7 +250,7 @@ input, textarea, select {
     <button class="nav-btn" data-page="foundList">📦 Found Items</button>
     <button class="nav-btn" data-page="verify">🔐 Verify Item</button>
 
-    <button class="btn ghost small" id="themeToggle">🌙 Dark Mode</button>
+   
 
   </div>
 
@@ -411,10 +397,7 @@ document.querySelectorAll(".nav-btn").forEach(btn=>{
 const body = document.body;
 const toggleBtn = document.getElementById("themeToggle");
 
-if(localStorage.getItem("theme") === "dark"){
-  body.classList.add("dark");
-  toggleBtn.textContent = "☀ Light Mode";
-}
+
 
 toggleBtn.addEventListener("click", ()=>{
   body.classList.toggle("dark");
@@ -647,5 +630,6 @@ document.getElementById("doVerify").onclick = function(){
 <footer id="appFooter">
   Created by <b>ARSR Group</b> ☺️
 </footer>
+
 
 </html>
