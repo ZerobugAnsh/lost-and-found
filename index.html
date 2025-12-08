@@ -207,9 +207,97 @@ footer {
   color: var(--text-light);
 }
 
-@media(max-width:900px) {
-  .app { grid-template-columns: 1fr; }
+
 }
+  /* =========================================================
+   📱 FULL RESPONSIVE DESIGN FOR MOBILE + LAPTOPS
+   ========================================================= */
+
+/* Mobile & Tablet (anything under 900px width) */
+@media (max-width: 900px) {
+
+  /* App layout becomes vertical */
+  .app {
+    grid-template-columns: 1fr !important;
+    padding: 0;
+  }
+
+  /* Sidebar becomes a top bar */
+  .sidebar {
+    flex-direction: row !important;
+    overflow-x: auto;
+    white-space: nowrap;
+    gap: 8px;
+    padding: 12px;
+    border-radius: 10px;
+    scrollbar-width: none;
+  }
+
+  .sidebar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .sidebar .logo {
+    min-width: 44px;
+  }
+
+  .nav-btn {
+    min-width: 140px;
+    text-align: center;
+    font-size: 14px;
+  }
+
+  /* Main content becomes full width */
+  .main {
+    margin-top: 10px;
+    padding: 16px;
+  }
+
+  /* Cards fit mobile width */
+  .glass, .item-card {
+    padding: 14px;
+  }
+
+  /* Item card image smaller */
+  .thumb {
+    width: 70px;
+    height: 60px;
+  }
+
+  /* Forms fit better */
+  input, select, textarea {
+    font-size: 15px;
+  }
+
+  /* Footer spacing */
+  footer {
+    margin-top: 15px;
+    font-size: 14px;
+  }
+}
+
+/* Extra small screens under 480px */
+@media (max-width: 480px) {
+  .nav-btn {
+    min-width: 120px;
+    font-size: 12px;
+    padding: 8px;
+  }
+
+  h2 {
+    font-size: 20px;
+  }
+
+  h3 {
+    font-size: 18px;
+  }
+
+  .thumb {
+    width: 60px;
+    height: 50px;
+  }
+}
+
 </style>
 </head>
 
@@ -570,4 +658,5 @@ doVerify.onclick = function(){
 
 </body>
 </html>
+
 
