@@ -1,35 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>PU Lost & Found (Purple Aesthetic)</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="UTF-8" />
+<title>PU Lost & Found - ARSR Group</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
 <style>
-   /* FOOTER ------------------------------------------------------------ */
-
-#appFooter {
-  width: 100%;
-  text-align: center;
-  margin-top: 20px;
-  padding: 14px;
-  font-size: 14px;
-  color: var(--text-light);
-  background: var(--card-bg);
-  border-radius: 10px;
-  border: 1px solid var(--border);
-  box-shadow: var(--shadow);
-}
-
-
-/* 🌸 PURPLE AESTHETIC THEME ----------------------------------------- */
-
-/* LIGHT THEME */
-
-  /* 🌙 ALWAYS DARK PURPLE THEME */
-
+/* 🌙 ALWAYS DARK PURPLE THEME */
 :root {
   --bg: #1C1524;
   --card-bg: #261C33;
@@ -37,18 +16,13 @@
   --text-light: #C7B5D9;
   --border: #3D2E4D;
 
-  --primary: #CBA3FF;        /* main purple */
-  --primary-soft: #2F2440;   /* soft purple background */
-  --primary-light: #372950;  /* hover color */
+  --primary: #CBA3FF;
+  --primary-soft: #2F2440;
+  --primary-light: #372950;
 
   --accent-pink: #DDAAFF;
   --shadow: 0 6px 24px rgba(0,0,0,0.45);
 }
-
-body, .app, .sidebar, .main, .glass, .item-card {
-  transition: background 0.25s ease, color 0.25s ease;
-}
-
 
 * { box-sizing: border-box; }
 
@@ -60,28 +34,23 @@ body {
   padding: 20px;
 }
 
-/* APP LAYOUT ------------------------------------------------------- */
-
+/* LAYOUT ---------------------------------------------------------- */
 .app {
   width: 100%;
-  max-width: 1100px;
+  max-width: 1120px;
   margin: auto;
-  background: var(--card-bg);
-  border-radius: 16px;
   display: grid;
   grid-template-columns: 240px 1fr;
   gap: 16px;
-  padding: 16px;
-  box-shadow: var(--shadow);
 }
 
-/* SIDEBAR ---------------------------------------------------------- */
-
+/* SIDEBAR --------------------------------------------------------- */
 .sidebar {
   background: var(--card-bg);
-  border-radius: 14px;
   border: 1px solid var(--border);
   padding: 18px;
+  border-radius: 14px;
+  box-shadow: var(--shadow);
   display: flex;
   flex-direction: column;
   gap: 12px;
@@ -100,76 +69,72 @@ body {
 }
 
 .nav-btn {
-  background: var(--primary-soft);
-  border: 1px solid var(--border);
   padding: 10px;
-  font-weight: 600;
   border-radius: 10px;
+  border: 1px solid var(--border);
+  background: var(--primary-soft);
   color: var(--text-dark);
+  font-weight: 600;
   cursor: pointer;
-  text-align: left;
   transition: 0.25s;
 }
 .nav-btn:hover {
-  background: var(--primary-light);
+  box-shadow: 0 0 12px rgba(203,163,255,0.35);
 }
 .nav-btn.active {
   background: var(--primary);
   color: white;
   border-color: var(--primary);
+  box-shadow: 0 0 14px rgba(203,163,255,0.45);
 }
 
-/* MAIN ------------------------------------------------------------- */
-
+/* MAIN ------------------------------------------------------------ */
 .main {
   background: var(--card-bg);
-  border-radius: 12px;
-  padding: 20px;
-  min-height: 520px;
   border: 1px solid var(--border);
+  padding: 20px;
+  border-radius: 14px;
   box-shadow: var(--shadow);
 }
 
-/* PAGES */
+/* PAGE HANDLING --------------------------------------------------- */
 .page { display: none; }
 .page.active { display: block; }
 
-/* CARDS ------------------------------------------------------------ */
-
-.glass {
+/* CARDS ----------------------------------------------------------- */
+.glass, .item-card {
   background: var(--card-bg);
-  border-radius: 10px;
-  padding: 16px;
   border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 16px;
   margin-bottom: 16px;
   box-shadow: var(--shadow);
 }
 
+/* ITEM CARD ------------------------------------------------------- */
 .item-card {
-  background: var(--card-bg);
-  border: 1px solid var(--border);
-  border-radius: 10px;
-  padding: 12px;
   display: flex;
-  gap: 10px;
-  box-shadow: var(--shadow);
+  gap: 12px;
 }
-
 .thumb {
   width: 90px;
   height: 70px;
-  background: var(--primary-soft);
   border-radius: 8px;
+  background: var(--primary-soft);
   overflow: hidden;
   display: flex;
   justify-content:center;
   align-items:center;
 }
-
 .thumb img { width: 100%; height:100%; object-fit: cover; }
 
-/* INPUTS ----------------------------------------------------------- */
+.item-card:hover {
+  transform: scale(1.01);
+  transition: 0.25s;
+  box-shadow: 0 0 20px rgba(203,163,255,0.4);
+}
 
+/* INPUTS ---------------------------------------------------------- */
 label {
   font-size: 13px;
   color: var(--text-light);
@@ -182,13 +147,27 @@ input, textarea, select {
   padding: 10px;
   border-radius: 10px;
   border: 1px solid var(--border);
-  margin-top: 5px;
-  background: black;
-  color: var(--text-light);
+  background: #2A2135;
+  color: white;
+  margin-top: 6px;
 }
 
-/* BUTTONS ---------------------------------------------------------- */
+input::placeholder, textarea::placeholder {
+  color: rgba(255,255,255,0.45);
+}
 
+/* GLOW EFFECT ----------------------------------------------------- */
+input:focus, textarea:focus, select:focus {
+  outline: none !important;
+  border-color: var(--primary) !important;
+  box-shadow:
+    0 0 10px rgba(203,163,255,0.45),
+    0 0 22px rgba(181,124,255,0.28);
+  transform: translateY(-1px);
+  transition: 0.25s ease;
+}
+
+/* BUTTONS --------------------------------------------------------- */
 .btn {
   padding: 10px 14px;
   border-radius: 10px;
@@ -197,33 +176,35 @@ input, textarea, select {
   font-weight: 600;
   transition: 0.25s;
 }
-
-.btn.primary { background: var(--primary); color:white; }
-.btn.primary:hover { background: #a366ff; }
-
-.btn.ghost {
-  background: var(--primary-soft);
-  color: var(--text-dark);
-  border: 1px solid var(--border);
+.btn.primary {
+  background: var(--primary);
+  color: white;
 }
-.btn.ghost:hover { background: var(--primary-light); }
+.btn.primary:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    0 0 12px rgba(203,163,255,0.55),
+    0 0 24px rgba(181,124,255,0.35);
+}
 
-.btn.small { padding: 8px 10px; font-size: 13px; }
-
-/* SEARCH BAR ------------------------------------------------------- */
-
-.search-row { display:flex; gap:8px; margin-bottom: 12px; }
-
+/* EMPTY MESSAGE --------------------------------------------------- */
 .empty {
-  text-align:center;
-  padding: 15px;
+  text-align: center;
+  padding: 16px;
   color: var(--text-light);
 }
 
-/* RESPONSIVE -------------------------------------------------------- */
-
-@media(max-width:900px) {
-  .app { grid-template-columns: 1fr; }
+/* FOOTER ---------------------------------------------------------- */
+footer {
+  width: 100%;
+  text-align: center;
+  margin-top: 20px;
+  padding: 12px;
+  border-radius: 12px;
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  color: var(--text-light);
 }
 </style>
 </head>
@@ -232,37 +213,34 @@ input, textarea, select {
 
 <div class="app">
 
-  <!-- SIDEBAR ------------------------------------------------------ -->
+  <!-- SIDEBAR -->
   <div class="sidebar">
-    
     <div style="display:flex; gap:10px; align-items:center;">
       <div class="logo">PU</div>
       <div>
-        <div style="font-weight:700">Lost & Found</div>
-        <div style="font-size:12px; color:var(--text-light)">Parul University</div>
+        <b>Lost & Found</b><br>
+        <span style="font-size:12px; color:var(--text-light)">Parul University</span>
       </div>
     </div>
 
     <button class="nav-btn active" data-page="home">🏠 Home</button>
-    <button class="nav-btn" data-page="reportLost">📌 Report Lost</button>
-    <button class="nav-btn" data-page="reportFound">📍 Report Found</button>
+    <button class="nav-btn" data-page="lostForm">📌 Report Lost</button>
+    <button class="nav-btn" data-page="foundForm">📍 Report Found</button>
     <button class="nav-btn" data-page="lostList">📄 Lost Items</button>
     <button class="nav-btn" data-page="foundList">📦 Found Items</button>
     <button class="nav-btn" data-page="verify">🔐 Verify Item</button>
-
-   
-
   </div>
 
-  <!-- MAIN ---------------------------------------------------------- -->
+  <!-- MAIN -->
   <div class="main">
 
-    <!-- HOME PAGE -->
+    <!-- HOME -->
     <section id="home" class="page active">
       <div class="glass">
         <h2>Welcome 💜</h2>
-        <p class="muted">Report & find lost items inside campus. Auto-matching + verification enabled.</p>
+        <p class="muted">Lost something? Found something? This portal helps PU students track items easily.</p>
       </div>
+
       <div class="glass">
         <h3>Recent Activity</h3>
         <div id="activityFeed"></div>
@@ -270,29 +248,29 @@ input, textarea, select {
       </div>
     </section>
 
-    <!-- REPORT LOST -->
-    <section id="reportLost" class="page">
+    <!-- LOST FORM -->
+    <section id="lostForm" class="page">
       <div class="glass">
         <h2>Report Lost Item</h2>
 
-        <label>Your Name</label>
+        <label>Name</label>
         <input id="lostName">
 
-        <label>Enrollment / Faculty ID</label>
+        <label>Enrollment / ID</label>
         <input id="lostEnroll">
 
         <label>Item Name</label>
         <input id="lostItemName">
 
         <label>Category</label>
-        <select id="lostItemCat">
+        <select id="lostCat">
           <option>ID Card</option><option>Mobile</option><option>Laptop</option>
           <option>Bag</option><option>Books</option><option>Wallet</option>
           <option>Charger</option><option>Other</option>
         </select>
 
         <label>4-digit Verification Code</label>
-        <input id="lostVcode" type="password" maxlength="4">
+        <input id="lostCode" maxlength="4" type="password">
 
         <label>Description</label>
         <textarea id="lostDesc"></textarea>
@@ -304,22 +282,22 @@ input, textarea, select {
       </div>
     </section>
 
-    <!-- REPORT FOUND -->
-    <section id="reportFound" class="page">
+    <!-- FOUND FORM -->
+    <section id="foundForm" class="page">
       <div class="glass">
         <h2>Report Found Item</h2>
 
-        <label>Your Name</label>
+        <label>Name</label>
         <input id="foundName">
 
-        <label>Enrollment / Faculty ID</label>
+        <label>Enrollment / ID</label>
         <input id="foundEnroll">
 
         <label>Item Name</label>
         <input id="foundItemName">
 
         <label>Category</label>
-        <select id="foundItemCat">
+        <select id="foundCat">
           <option>ID Card</option><option>Mobile</option><option>Laptop</option>
           <option>Bag</option><option>Books</option><option>Wallet</option>
           <option>Charger</option><option>Other</option>
@@ -340,7 +318,7 @@ input, textarea, select {
       <div class="glass">
         <h2>Lost Items</h2>
         <div id="lostContainer"></div>
-        <div id="lostEmpty" class="empty">No lost items reported.</div>
+        <div id="lostEmpty" class="empty">No lost items yet.</div>
       </div>
     </section>
 
@@ -349,7 +327,7 @@ input, textarea, select {
       <div class="glass">
         <h2>Found Items</h2>
         <div id="foundContainer"></div>
-        <div id="foundEmpty" class="empty">No found items reported.</div>
+        <div id="foundEmpty" class="empty">No found items yet.</div>
       </div>
     </section>
 
@@ -361,13 +339,13 @@ input, textarea, select {
         <label>Select Lost Item</label>
         <select id="verifySelect"></select>
 
-        <label>Enter 4-digit Code</label>
+        <label>Enter Code</label>
         <input id="verifyCode" type="password" maxlength="4">
 
         <button class="btn primary" id="doVerify">Verify</button>
 
         <div id="profileBox" class="glass" style="display:none; margin-top:15px;">
-          <h3>Verified Profile</h3>
+          <h3>Verified Details</h3>
           <div id="profileDetails"></div>
         </div>
       </div>
@@ -376,242 +354,201 @@ input, textarea, select {
   </div>
 </div>
 
-<!-- JAVASCRIPT ------------------------------------------------------ -->
+<footer>
+  Created by <b>ARSR Group</b> ☺️
+</footer>
 
 <script>
-/* SPA NAVIGATION ---------------------------------------------------- */
-function navigate(page){
-  document.querySelectorAll(".page").forEach(p=>p.classList.remove("active"));
-  document.getElementById(page).classList.add("active");
+/* NAVIGATION */
+function navigate(pg){
+  document.querySelectorAll(".page").forEach(p => p.classList.remove("active"));
+  document.getElementById(pg).classList.add("active");
 
-  document.querySelectorAll(".nav-btn").forEach(b=>{
-    b.classList.toggle("active", b.dataset.page === page);
-  });
+  document.querySelectorAll(".nav-btn").forEach(btn =>
+    btn.classList.toggle("active", btn.dataset.page === pg)
+  );
 }
 
-document.querySelectorAll(".nav-btn").forEach(btn=>{
-  btn.addEventListener("click", () => navigate(btn.dataset.page));
-});
+document.querySelectorAll(".nav-btn").forEach(b =>
+  b.addEventListener("click", () => navigate(b.dataset.page))
+);
 
-/* THEME TOGGLE ------------------------------------------------------ */
-const body = document.body;
-const toggleBtn = document.getElementById("themeToggle");
-
-
-
-toggleBtn.addEventListener("click", ()=>{
-  body.classList.toggle("dark");
-  const dark = body.classList.contains("dark");
-  toggleBtn.textContent = dark ? "☀ Light Mode" : "🌙 Dark Mode";
-  localStorage.setItem("theme", dark ? "dark" : "light");
-});
-
-/* DATA STORAGE ------------------------------------------------------ */
-let lostItems = JSON.parse(localStorage.getItem("lostItems") || "[]");
-let foundItems = JSON.parse(localStorage.getItem("foundItems") || "[]");
+/* STORAGE */
+let lost = JSON.parse(localStorage.getItem("lost") || "[]");
+let found = JSON.parse(localStorage.getItem("found") || "[]");
 let activity = JSON.parse(localStorage.getItem("activity") || "[]");
 
 function save(){
-  localStorage.setItem("lostItems", JSON.stringify(lostItems));
-  localStorage.setItem("foundItems", JSON.stringify(foundItems));
+  localStorage.setItem("lost", JSON.stringify(lost));
+  localStorage.setItem("found", JSON.stringify(found));
   localStorage.setItem("activity", JSON.stringify(activity));
 }
 
-/* UTILS ------------------------------------------------------------- */
+/* ACTIVITY FEED */
 function addActivity(text){
-  activity.unshift({ text, time: new Date().toLocaleString() });
+  activity.unshift({text, time:new Date().toLocaleString()});
   save();
   renderActivity();
 }
 
-/* RENDER ACTIVITY --------------------------------------------------- */
 function renderActivity(){
   const feed = document.getElementById("activityFeed");
   feed.innerHTML = "";
 
-  if(activity.length === 0){
-    document.getElementById("noAct").style.display = "block";
+  if(activity.length == 0){
+    noAct.style.display = "block";
     return;
   }
 
-  document.getElementById("noAct").style.display = "none";
+  noAct.style.display = "none";
 
   activity.slice(0,10).forEach(a=>{
-    const div = document.createElement("div");
+    let div = document.createElement("div");
     div.className = "item-card";
-    div.innerHTML = `
-      <div>
-        <b>${a.text}</b><br>
-        <span class="muted">${a.time}</span>
-      </div>`;
+    div.innerHTML = `<div><b>${a.text}</b><br><span class="muted">${a.time}</span></div>`;
     feed.appendChild(div);
   });
 }
 
 renderActivity();
 
-/* ADD LOST ITEM ----------------------------------------------------- */
-document.getElementById("submitLost").onclick = async function(){
-  const name = lostName.value.trim();
-  const enroll = lostEnroll.value.trim();
-  const itemName = lostItemName.value.trim();
-  const cat = lostItemCat.value;
-  const code = lostVcode.value.trim();
-  const desc = lostDesc.value.trim();
-  const photoFile = lostPhoto.files[0];
+/* ADD LOST */
+submitLost.onclick = async function(){
+  let name = lostName.value.trim();
+  let enroll = lostEnroll.value.trim();
+  let itemName = lostItemName.value.trim();
+  let cat = lostCat.value;
+  let code = lostCode.value.trim();
+  let desc = lostDesc.value.trim();
+  let photoFile = lostPhoto.files[0];
 
   if(!name || !enroll || !itemName || !code){
-    return alert("Fill all required fields");
+    return alert("Please fill all fields");
   }
 
-  if(code.length !== 4 || isNaN(code)){
+  if(code.length != 4 || isNaN(code)){
     return alert("Code must be 4 digits");
   }
 
   let photo = "";
   if(photoFile){
     photo = await new Promise(res=>{
-      const r = new FileReader();
-      r.onload = ()=>res(r.result);
+      let r = new FileReader();
+      r.onload=()=>res(r.result);
       r.readAsDataURL(photoFile);
     });
   }
 
-  lostItems.push({ id:Date.now(), name, enroll, itemName, cat, code, desc, photo });
+  lost.push({id:Date.now(), name, enroll, itemName, cat, code, desc, photo});
   save();
   addActivity("Lost item reported: " + itemName);
 
   renderLost();
-  updateVerifySelect();
-
+  updateVerify();
   alert("Lost item added!");
 
-  lostName.value = "";
-  lostEnroll.value = "";
-  lostItemName.value = "";
-  lostVcode.value = "";
-  lostDesc.value = "";
+  lostName.value = lostEnroll.value = lostItemName.value = lostCode.value = lostDesc.value = "";
   lostPhoto.value = "";
 };
 
-/* ADD FOUND ITEM ---------------------------------------------------- */
-document.getElementById("submitFound").onclick = async function(){
-  const name = foundName.value.trim();
-  const enroll = foundEnroll.value.trim();
-  const itemName = foundItemName.value.trim();
-  const cat = foundItemCat.value;
-  const desc = foundDesc.value.trim();
-  const photoFile = foundPhoto.files[0];
+/* ADD FOUND */
+submitFound.onclick = async function(){
+  let name = foundName.value.trim();
+  let enroll = foundEnroll.value.trim();
+  let itemName = foundItemName.value.trim();
+  let cat = foundCat.value;
+  let desc = foundDesc.value.trim();
+  let photoFile = foundPhoto.files[0];
 
   if(!name || !enroll || !itemName){
-    return alert("Fill all required fields");
+    return alert("Please fill all fields");
   }
 
   let photo = "";
   if(photoFile){
     photo = await new Promise(res=>{
-      const r = new FileReader();
-      r.onload = ()=>res(r.result);
+      let r = new FileReader();
+      r.onload=()=>res(r.result);
       r.readAsDataURL(photoFile);
     });
   }
 
-  foundItems.push({ id:Date.now(), name, enroll, itemName, cat, desc, photo });
+  found.push({id:Date.now(), name, enroll, itemName, cat, desc, photo});
   save();
   addActivity("Found item reported: " + itemName);
 
   renderFound();
   alert("Found item added!");
 
-  foundName.value = "";
-  foundEnroll.value = "";
-  foundItemName.value = "";
-  foundDesc.value = "";
+  foundName.value = foundEnroll.value = foundItemName.value = foundDesc.value = "";
   foundPhoto.value = "";
 };
 
-/* RENDER LOST LIST -------------------------------------------------- */
+/* RENDER LOST LIST */
 function renderLost(){
-  const box = document.getElementById("lostContainer");
-  box.innerHTML = "";
-
-  if(lostItems.length === 0){
-    lostEmpty.style.display = "block";
+  lostContainer.innerHTML = "";
+  if(lost.length === 0){
+    lostEmpty.style.display="block";
     return;
   }
-  lostEmpty.style.display = "none";
+  lostEmpty.style.display="none";
 
-  lostItems.forEach(item=>{
-    const div = document.createElement("div");
+  lost.forEach(i=>{
+    let div = document.createElement("div");
     div.className = "item-card";
     div.innerHTML = `
-      <div class="thumb">${item.photo ? `<img src="${item.photo}">` : "No Photo"}</div>
+      <div class="thumb">${i.photo ? `<img src="${i.photo}">` : "No Photo"}</div>
       <div>
-        <b>${item.itemName}</b> <span class="muted">(${item.cat})</span><br>
-        <span class="muted">Reported by: ${item.name}</span>
+        <b>${i.itemName}</b> <span class="muted">(${i.cat})</span><br>
+        <span class="muted">Reported by: ${i.name}</span>
       </div>`;
-    box.appendChild(div);
+    lostContainer.appendChild(div);
   });
 }
 
 renderLost();
 
-/* RENDER FOUND LIST ------------------------------------------------- */
+/* RENDER FOUND LIST */
 function renderFound(){
-  const box = document.getElementById("foundContainer");
-  box.innerHTML = "";
-
-  if(foundItems.length === 0){
-    foundEmpty.style.display = "block";
+  foundContainer.innerHTML = "";
+  if(found.length === 0){
+    foundEmpty.style.display="block";
     return;
   }
-  foundEmpty.style.display = "none";
+  foundEmpty.style.display="none";
 
-  foundItems.forEach(item=>{
-    const div = document.createElement("div");
+  found.forEach(i=>{
+    let div = document.createElement("div");
     div.className = "item-card";
     div.innerHTML = `
-      <div class="thumb">${item.photo ? `<img src="${item.photo}">` : "No Photo"}</div>
+      <div class="thumb">${i.photo ? `<img src="${i.photo}">` : "No Photo"}</div>
       <div>
-        <b>${item.itemName}</b> <span class="muted">(${item.cat})</span><br>
-        <span class="muted">Found by: ${item.name}</span>
+        <b>${i.itemName}</b> <span class="muted">(${i.cat})</span><br>
+        <span class="muted">Found by: ${i.name}</span>
       </div>`;
-    box.appendChild(div);
+    foundContainer.appendChild(div);
   });
 }
 
 renderFound();
 
-/* VERIFY PAGE ------------------------------------------------------- */
-function updateVerifySelect(){
-  const sel = verifySelect;
-  sel.innerHTML = "";
-
-  if(lostItems.length === 0){
-    sel.innerHTML = "<option>No lost items</option>";
-    return;
-  }
-
-  lostItems.forEach(i=>{
-    sel.innerHTML += `<option value="${i.id}">${i.itemName} (${i.cat})</option>`;
+/* VERIFY */
+function updateVerify(){
+  verifySelect.innerHTML = "";
+  lost.forEach(i => {
+    verifySelect.innerHTML += `<option value="${i.id}">${i.itemName} (${i.cat})</option>`;
   });
 }
-updateVerifySelect();
+updateVerify();
 
-document.getElementById("doVerify").onclick = function(){
-  const id = verifySelect.value;
-  const code = verifyCode.value.trim();
+doVerify.onclick = function(){
+  let id = verifySelect.value;
+  let code = verifyCode.value.trim();
 
-  if(!id || !code){
-    return alert("Enter details");
-  }
-
-  const item = lostItems.find(i=>i.id == id);
+  let item = lost.find(i => i.id == id);
   if(!item) return alert("Item not found");
 
-  if(item.code !== code){
-    return alert("Incorrect code");
-  }
+  if(item.code !== code) return alert("Incorrect code!");
 
   profileBox.style.display = "block";
   profileDetails.innerHTML = `
@@ -619,18 +556,11 @@ document.getElementById("doVerify").onclick = function(){
     <b>ID:</b> ${item.enroll}<br>
     <b>Item:</b> ${item.itemName}<br>
     <b>Category:</b> ${item.cat}<br>
-    <div style="margin-top:8px">
-      ${item.photo ? `<img src="${item.photo}" style="width:120px;border-radius:8px;">` : ""}
-    </div>
+    ${item.photo ? `<img src="${item.photo}" style="width:130px; margin-top:10px; border-radius:10px;">` : ""}
   `;
 };
 </script>
 
 </body>
-<footer id="appFooter">
-  Created by <b>ARSR Group</b> ☺️
-</footer>
-
-
 </html>
 
