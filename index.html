@@ -290,51 +290,26 @@ footer {
    📱 FINAL MOBILE FIX — SIDEBAR BECOMES HORIZONTAL SCROLL MENU
    ============================================================ */
 
-@media (max-width: 900px) {
-
-  /* Collapse the grid into one column */
-  .app {
-    grid-template-columns: 1fr !important;
-  }
-
-  /* Sidebar becomes top horizontal bar */
-  .sidebar {
-    flex-direction: row !important;
-    align-items: center;
-    justify-content: flex-start;
-    overflow-x: auto;
-    white-space: nowrap;
-    padding: 10px;
-    border-radius: 10px;
-    gap: 10px;
-  }
-
-  /* Hide scroll bar */
-  .sidebar::-webkit-scrollbar {
-    display: none;
-  }
-
-  /* Navigation buttons become inline-block */
+@media (max-width: 480px) {
   .nav-btn {
-    display: inline-block;
-    min-width: 130px;
-    text-align: center;
-    padding: 10px 14px;
-    font-size: 14px;
+    min-width: 120px;
+    font-size: 12px;
+    padding: 8px;
   }
 
-  /* Main section should not shrink */
-  .main {
-    margin-top: 12px;
+  h2 {
+    font-size: 20px;
   }
 
-  /* Adjust item card thumbnails */
+  h3 {
+    font-size: 18px;
+  }
+
   .thumb {
-    width: 70px;
-    height: 55px;
+    width: 60px;
+    height: 50px;
   }
 }
-
 </style>
 </head>
 
@@ -695,6 +670,7 @@ doVerify.onclick = function(){
 
 </body>
 </html>
+
 
 
 
