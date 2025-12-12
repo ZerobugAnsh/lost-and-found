@@ -33,6 +33,7 @@ body {
   background: var(--bg);
   color: var(--text-dark);
   padding: 20px;
+  overflow-x:hidden;
 }
 
 /* LAYOUT ---------------------------------------------------------- */
@@ -78,6 +79,7 @@ body {
   font-weight: 600;
   cursor: pointer;
   transition: 0.25s;
+  min-height: 44px;
 }
 .nav-btn:hover {
   box-shadow: 0 0 12px rgba(203,163,255,0.35);
@@ -115,7 +117,9 @@ body {
 /* ITEM CARD ------------------------------------------------------- */
 .item-card {
   display: flex;
-  gap: 12px;
+  flex-direction: column;
+  align-items:flex-start;
+  
 }
 .thumb {
   width: 90px;
@@ -209,7 +213,7 @@ footer {
 }
 
 
-}
+
   /* =========================================================
    📱 FULL RESPONSIVE DESIGN FOR MOBILE + LAPTOPS
    ========================================================= */
@@ -314,7 +318,7 @@ footer {
 </style>
 </head>
 
-<body>
+
 
 
 <body>
@@ -671,3 +675,4 @@ doVerify.onclick = function(){
 
 </body>
 </html>
+
