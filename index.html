@@ -315,6 +315,42 @@ footer {
     height: 50px;
   }
 }
+  /* 📩 FLOATING CONTACT BUTTON */
+.floating-contact {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: var(--primary);
+  color: white;
+  font-size: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  box-shadow:
+    0 0 12px rgba(203,163,255,0.6),
+    0 0 24px rgba(181,124,255,0.4);
+  z-index: 999;
+  transition: transform 0.25s ease;
+}
+
+.floating-contact:hover {
+  transform: scale(1.08);
+}
+
+/* Mobile safe spacing */
+@media (max-width: 480px) {
+  .floating-contact {
+    bottom: 16px;
+    right: 16px;
+    width: 52px;
+    height: 52px;
+    font-size: 22px;
+  }
+}
 </style>
 </head>
 
@@ -673,9 +709,18 @@ doVerify.onclick = function(){
   `;
 };
 </script>
-
+ 
+<a 
+  href="mailto:arsrgroup@gmail.com
+  ?subject=Lost%20and%20Found%20Inquiry
+  &body=Hello%2C%0A%0AI%20am%20contacting%20you%20via%20the%20PU%20Lost%20%26%20Found%20Portal.%0A%0AThank%20you."
+  class="floating-contact"
+  title="Contact Owner">
+  ✉️
+</a>
 </body>
 </html>
+
 
 
 
