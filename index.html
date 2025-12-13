@@ -33,7 +33,11 @@ body {
   background: var(--bg);
   color: var(--text-dark);
   padding: 20px;
-  overflow-x:hidden;
+  overflow-x: hidden;
+
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
 /* LAYOUT ---------------------------------------------------------- */
@@ -44,6 +48,10 @@ body {
   display: grid;
   grid-template-columns: 240px 1fr;
   gap: 16px;
+  
+  margin-bottom: 60px; /* space between content and footer */
+
+
 }
 
 /* SIDEBAR --------------------------------------------------------- */
@@ -203,15 +211,16 @@ input:focus, textarea:focus, select:focus {
 footer {
   width: 100%;
   text-align: center;
-  margin-top: 20px;
   padding: 14px;
-  font-size: 14px;
-  border-radius: 10px;
+  border-radius: 12px;
   background: var(--card-bg);
   border: 1px solid var(--border);
   box-shadow: var(--shadow);
   color: var(--text-light);
+
+  margin-top: auto;   /* 👈 pushes footer to bottom */
 }
+
 
 
 
@@ -737,6 +746,7 @@ doVerify.onclick = function(){
 </a>
 </body>
 </html>
+
 
 
 
