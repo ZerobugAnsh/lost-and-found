@@ -240,8 +240,7 @@ footer {
   /* Sidebar becomes a top bar */
   .sidebar {
     flex-direction: row !important;
-    overflow-x: auto;
-    white-space: nowrap;
+   
     gap: 8px;
     padding: 12px;
     border-radius: 10px;
@@ -296,26 +295,43 @@ footer {
    📱 FINAL MOBILE FIX — SIDEBAR BECOMES HORIZONTAL SCROLL MENU
    ============================================================ */
 
-@media (max-width: 480px) {
+@media (max-width: 900px) {
+
+  .app {
+    grid-template-columns: 1fr;
+  }
+
+  /* Sidebar becomes grid */
+  .sidebar {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+    padding: 12px;
+  }
+
+  /* Logo section spans full width */
+  .sidebar > div:first-child {
+    grid-column: 1 / -1;
+    justify-content: center;
+    text-align: center;
+  }
+
   .nav-btn {
-    min-width: 120px;
-    font-size: 12px;
-    padding: 8px;
+    width: 100%;
+    min-height: 44px;
+    font-size: 14px;
+    padding: 10px;
   }
 
-  h2 {
-    font-size: 20px;
+  .main {
+    margin-top: 10px;
   }
 
-  h3 {
-    font-size: 18px;
-  }
-
-  .thumb {
-    width: 60px;
-    height: 50px;
+  .item-card {
+    flex-direction: column;
   }
 }
+
   /* 📩 FLOATING CONTACT BUTTON */
 .floating-contact {
   position: fixed;
@@ -721,6 +737,7 @@ doVerify.onclick = function(){
 </a>
 </body>
 </html>
+
 
 
 
